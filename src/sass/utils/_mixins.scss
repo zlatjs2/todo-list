@@ -1,0 +1,127 @@
+// float 해제
+@mixin clearfix {
+    &::after {
+        content: '';
+        display: table;
+        clear: both;
+        *zoom: 1;
+    }
+}
+// 대체 텍스트
+@mixin ir-pm {
+    display: block;
+    overflow: hidden;
+    font-size: 0;
+    line-height: 0;
+    text-indent: -9999px;
+}
+@mixin ir-wa {
+    display: block;
+    overflow: hidden;
+    position: relative;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+}
+@mixin sc-out {
+    overflow: hidden;
+    position: absolute;
+    left: -9999px;
+    width: 1px;
+    height: 1px;
+    font-size: 0;
+    line-height: 0;
+    text-indent: -9999px;
+}
+@mixin inline-type {
+    display: inline-block;
+    *display: inline;
+    zoom: 1;
+    vertical-align: middle;
+}
+// 말줄임
+@mixin text-overflow {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    word-wrap: normal;
+}
+@mixin text-overflow-multi($maxHeight, $line) {
+    max-height: $maxHeight;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: $line;
+    -webkit-box-orient: vertical;
+    text-overflow: ellipsis;
+}
+@mixin box-sizing {
+    -webkit-box-sizing: border-box;
+       -moz-box-sizing: border-box;
+            box-sizing: border-box;
+}
+
+// 딤드
+@mixin dim($val) {
+    z-index: $val;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: $dim;
+}
+
+/// PREFIX
+/// @access public
+@mixin prefix($property, $value, $prefixes: ()) {
+  @each $prefix in $prefixes {
+    #{'-' + $prefix + '-' + $property}: $value;
+  }
+  #{$property}: $value;
+}
+
+/// RESPOND-TO
+/// @access public
+@mixin respond-to( $media ) {
+  @if $media == medium-screens {
+    @media only screen and ( min-width: $tablet ) { @content; }
+  }
+  @else if $media == wide-screens {
+    @media only screen and ( min-width: $screen ) { @content; }
+  }
+}
+
+/// Block Element
+/// @access public
+/// @param {String} $element - Element's name
+@mixin element($element...) {
+  &__#{$element} {
+    @content;
+  }
+}
+@mixin element-type($element-type...) {
+  &-#{$element-type} {
+    @content;
+  }
+}
+
+/// Block Modifier
+/// @access public
+/// @param {String} $modifier - Modifier's name
+@mixin modifier($modifier...) {
+  &_#{$modifier} {
+    @content;
+  }
+}
+@mixin modifier-state($modifier-state...) {
+  &-#{$modifier-state} {
+    @content;
+  }
+}
+
+/// Calc Percent
+/// @access public
+/// @param $target / $container name
+@function calc-percent($target, $container) {
+  @return ($target / $container) * 100%;
+}

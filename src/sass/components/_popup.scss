@@ -1,0 +1,271 @@
+/**
+ * 공통 팝업.
+ */
+@-webkit-keyframes fadeInFromNone {
+  0% { opacity: 0; }
+  1% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@-moz-keyframes fadeInFromNone {
+  0% { opacity: 0; }
+  1% { opacity: 0; }
+}
+
+@keyframes popupUp {
+  from { bottom: -340px; }
+  to { bottom: 0; }
+}
+
+.popup__dimmed {
+  @include prefix(animation, fadeInFromNone 0.2s ease-out, webkit moz o);
+  background: rgba($black, 0.4);
+  display: none;
+  z-index: 1000;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  @include modifier('show') {
+    display: block;
+  }
+}
+
+/**
+ * 기본 공통 팝업.
+ */
+.popup {
+  display: none;
+  z-index: 1001;
+  position: fixed;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  height: 375px;
+  @include prefix(transform, translate3d(0,-50%,0), webkit moz o);
+  @include element('container'){
+    @include box-sizing;
+    background-color: $white;
+    z-index: 1001;
+    position: relative;
+    max-width: 290px;
+    margin: 0 auto;
+    padding: 40px 20px 0;
+  }
+  @include element('content'){
+    padding: 0 0 30px;
+    height: 185px;
+    overflow-y: scroll;
+  }
+
+  @include modifier('on'){
+    display: block;
+  }
+  @include element('title') {
+    color: $strong-text;
+    font-size: ($font-size-large + 1px);
+    margin-bottom: 20px;
+    text-align: center;
+    line-height: 24px;
+    em {
+      font-weight: bold;
+      color: $pink;
+    }
+  }
+
+  @include element('btn-group') {
+    @include clearfix;
+    border-top: 1px solid $grayscale-lv2;
+    position: relative;
+  }
+  @include element('btn') {
+    font-size: $font-size-regular;
+    color: $regular-text;
+    em {
+      color: $pink;
+    }
+    &.f-left:after {
+      content: '';
+      display: block;
+      position: absolute;
+      top: 15px;
+      left: 50%;
+      width: 1px;
+      height: 20px;
+      background-color: $grayscale-lv2;
+    }
+    &.f-left,
+    &.f-right {
+      width: 50%;
+    }
+  }
+}
+.check {
+  @include element-type('list') {
+    @include clearfix;
+    font-size: ($font-size-small + 1px);
+    border-top: 1px solid $grayscale-lv2;
+    border-bottom: 1px solid $grayscale-lv2;
+    padding: 20px;
+  }
+  @include element-type('item') {
+    margin-top: 10px;
+    &:first-child {
+      margin-top: 0;
+    }
+    @include element('day') {
+      color: $strong-text;
+    }
+  }
+}
+
+/**
+ * 하단 슬라이드 팝업.
+ */
+.slide-popup {
+  z-index: 1001;
+  position: fixed;
+  left: 0;
+  width: 100%;
+  height: 340px;
+  @include element('container'){
+    @include box-sizing;
+    background-color: $white;
+    z-index: 1001;
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding: 40px 20px 0;
+  }
+  @include element('content'){
+    color: $strong-text;
+    height: 260px;
+    overflow-y: scroll;
+  }
+
+  @include modifier('on'){
+    @include prefix(animation, popupUp 0.2s ease-out, webkit moz o);
+    bottom: 0;
+  }
+  @include element('title') {
+    color: $strong-text;
+    font-size: ($font-size-large + 3px);
+    margin-bottom: 20px;
+  }
+}
+
+/**
+ * 토스트 팝업.
+ */
+.toast-popup {
+  @include box-sizing;
+  @include prefix(transition, transform 0.6s, webkit moz o);
+  @include prefix(transition-timing-function, cubic-bezier(0.7,0,0.3,1), webkit moz o);
+  font-size: ($font-size-small + 1px);
+  background-color: $pink;
+  z-index: 999;
+  position: fixed;
+  left: 0;
+  width: 100%;
+  height: auto;
+  min-height: 40px;
+  @include element('txt') {
+    color: $white;
+  }
+  @include modifier('top') {
+    @include prefix(transform, translate3d(0,-200px,0), webkit moz o);
+    top: 0;
+    padding: 10px 0;
+    text-align: center;
+    line-height: 20px;
+    @include modifier-state('show') {
+      @include prefix(transform, translate3d(0,44px,0), webkit moz o);
+    }
+  }
+  @include modifier('bottom') {
+    @include prefix(transform, translate3d(0,350px,0), webkit moz o);
+    bottom: 0;
+    padding: 25px 20px;
+    line-height: 20px;
+    font-stretch: ultra-condensed;
+    .toast-popup__btn {
+      font-size: ($font-size-regular + 1px);
+      color: $white;
+      width: 40px;
+      height: 40px;
+      text-align: center;
+    }
+    .toast-popup__txt {
+      font-size: ($font-size-regular + 3px);
+    }
+    @include modifier-state('show') {
+      @include prefix(transform, translate3d(0,0,0), webkit moz o);
+    }
+  }
+}
+/**
+ * 팝업 콘텐츠 스타일.
+ */
+.coupon {
+  @include element('item') {
+    margin-top: 8px;
+    padding: 10px 0 0;
+    &:first-child {
+      margin-top: 0;
+    }
+    .radio-input__label {
+      margin-left: 10px;
+      font-weight: bold;
+    }
+    small {
+      font-size: ($font-size-small + 1px);
+      color: $regular-text;
+      display: inline-block;
+      margin-left: 10px;
+      font-weight: normal;
+    }
+  }
+}
+
+.payment {
+  @include element('list') {
+    padding-bottom: 40px;
+  }
+  @include element('item') {
+    margin-top: 8px;
+    padding: 10px 0 0;
+    &:first-child {
+      margin-top: 0;
+    }
+    .radio-input__label {
+      margin-left: 10px;
+      font-weight: bold;
+    }
+    small {
+      font-size: ($font-size-small + 1px);
+      color: $regular-text;
+      display: block;
+      margin: 5px 0 0 40px;
+      font-weight: normal;
+    }
+  }
+}
+
+.notice {
+  @include element('list') {
+    padding: 20px 0;
+  }
+  @include element('item') {
+    font-size: $font-size-small;
+    color: $regular-text;
+    margin-top: 10px;
+    padding-left: 5px;
+    text-indent: -5px;
+    &:first-child {
+      margin-top: 0;
+    }
+  }
+}

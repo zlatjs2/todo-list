@@ -1,0 +1,46 @@
+// 공통만 변수로 선언하고, 개별적인 스타일은 해당 클래스에 직접 선언한다.
+// 글꼴
+$font-stack: (
+  AppleSDGothicNeo,
+  Helvetica,
+  sans-serif
+);
+
+// 굵기
+$font-weight-light: 300;
+$font-weight-regular: 400;
+$font-weight-bold: 600;
+
+// 크기
+$font-size-small: 12px;
+$font-size-regular: 15px;
+$font-size-large: 17px;
+$font-size-xlarge: 24px;
+
+// 색상
+$white: #fff;
+$black: #000;
+$grayscale-lv1: #f2f2f2;
+$grayscale-lv2: #ddd;
+$grayscale-lv3: #aaa;
+$grayscale-lv4: #666;
+$grayscale-lv5: #333;
+$grayscale-lv6: #484848;
+
+$pink: #ff3478;
+
+$light-text: $grayscale-lv3;
+$regular-text: $grayscale-lv4;
+$strong-text: $grayscale-lv5;
+
+$color-text-link: $pink;
+
+$border-normal: $grayscale-lv2;
+$background-body: $grayscale-lv1;
+$background-default: $grayscale-lv1;
+
+
+// resolutions
+$mobile: 320px;
+$tablet: 768px;
+$screen: 1024px;

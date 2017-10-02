@@ -1,0 +1,119 @@
+/**
+ * @ reserve__info
+ *   예약 정보 영역 스타일.
+ */
+
+.write-form {
+  @include element('list') {
+    margin-top: 20px;
+  }
+  @include element('item') {
+    position: relative;
+    margin-bottom: 20px;
+    padding-left: 75px;
+    @include element-type('security') {
+      padding-right: 100px;
+    }
+    @include element-type('certificate') {
+      padding-left: 140px;
+      .btn {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 120px;
+      }
+      .text-input {
+        padding: 11px 0;
+      }
+    }
+
+    @include modifier('disabled') {
+      .text-input {
+        border-bottom: 0 none;
+      }
+      .btn__change-phone {
+        display: block;
+      }
+    }
+  }
+  @include element('visitant') {
+    display: none;
+  }
+  .text-input__label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    padding: 8px 0 9px;
+  }
+  .text-input {
+    display: block;
+  }
+  @include element('btn-group') {
+    margin: 30px 0;
+    .btn {
+      -webkit-width: calc(50% - 3px);
+              width: calc(50% - 3px);
+      &:nth-child(1) {
+        margin-right: 3px;
+      }
+      &:nth-child(2) {
+        margin-left: 3px;
+      }
+    }
+  }
+  @include element('checkbox') {
+    padding: 15px 0;
+  }
+
+  @include element('message') {
+    font-size: ($font-size-small + 1px);
+    color: $light-text;
+    margin: 20px 0;
+    padding-left: 17px;
+    text-indent: -17px;
+  }
+  @include element('txt') {
+
+  }
+  .btn__change-phone {
+    color: $pink;
+    font-size: ($font-size-regular + 1px);
+    position: absolute;
+    top: 6px;
+    right: 0;
+  }
+}
+
+.txt-security {
+  font-size: $font-size-small;
+  color: $pink;
+  .icon__security-number {
+    margin: -3px 4px 0 0;
+  }
+}
+
+.pickup {
+  padding-left: 23px;
+  @include element('list') {
+
+  }
+  @include element('item') {
+    font-size: ($font-size-small + 1px);
+    color: $light-text;
+    position: relative;
+    margin-top: 7px;
+    padding-left: 3px;
+    &:after {
+      content: '';
+      display: block;
+      position: absolute;
+      top: 5px;
+      left: 0;
+      width: 2px;
+      height: 2px;
+      background: $grayscale-lv3;
+    }
+  }
+
+}

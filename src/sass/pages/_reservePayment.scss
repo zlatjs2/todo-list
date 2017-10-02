@@ -1,0 +1,172 @@
+/**
+ * @ reserve__payment
+ *   최종 결제 정보 영역 스타일.
+ */
+.payment-info {
+  @include clearfix;
+  color: $strong-text;
+  margin-top: 15px;
+  padding: 12px 0;
+  @include element('txt'){
+    font-size: ($font-size-large - 1px);
+    font-weight: bold;
+  }
+}
+
+.payment-total {
+  color: $pink;
+  font-size: $font-size-xlarge;
+}
+
+.discount-info {
+  @include clearfix;
+  margin-bottom: 5px;
+  @include element('item'){
+    @include box-sizing;
+    font-size: $font-size-regular;
+    color: $strong-text;
+    position: relative;
+    width: 100%;
+    margin-top: 10px;
+    padding-left: 75px;
+    text-align: left;
+    .icon__discount-arrow_right {
+      margin-top: -4px;
+    }
+    &:first-child {
+      margin-top: 0;
+    }
+
+    @include modifier('disabled') {
+      .di-title {
+        color: $light-text;
+      }
+      .di-tip {
+        display: none;
+      }
+      .text-input {
+        border-bottom: 0 none;
+      }
+      .icon__discount-arrow_right {
+        display: none;
+      }
+    }
+  }
+  @include element('txt'){
+    font-size: ($font-size-large - 1px);
+  }
+}
+
+.di-title {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 14px 0 11px;
+}
+.di-tip {
+  color: $pink;
+  font-size: ($font-size-regular - 1px);
+  display: block;
+  position: absolute;
+  top: 10px;
+  left: 0;
+  padding: 5px;
+}
+.di-cont {
+  display: block;
+  position: relative;
+  width: 100%;
+  min-height: 19px;
+  padding: 13px 0 8px;
+  .text-input__input {
+    text-align: right;
+    font-size: ($font-size-regular + 1px);
+  }
+}
+.btn__coupon {
+  font-size: ($font-size-small + 1px);
+}
+.coupon-name {
+  font-size: ($font-size-regular + 1px);
+  color: $pink;
+  display: block;
+  margin-left: 40px;
+  margin-top: 5px;
+}
+.option-info {
+  border: 1px solid $grayscale-lv4;
+  position: relative;
+  height: 20px;
+  margin-top: 20px;
+  padding: 20px 15px 18px;
+  text-align: left;
+
+  @include element('output'){
+    font-size: ($font-size-large + 1px);
+    color: $strong-text;
+  }
+
+  .btn__change-option {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 60px;
+    padding: 0 15px 0 0;
+    color: $pink;
+    font-size: ($font-size-large - 1px);
+    text-align: right;
+  }
+}
+.banner-info {
+  margin-top: 30px;
+  @include element('link') {
+    display: block;
+    margin-top: 25px;
+    &:first-child {
+      margin-top: 0;
+    }
+  }
+}
+
+.agree-check__box {
+  position: relative;
+  padding-left: 30px;
+}
+
+.check-input__agree {
+  position: absolute;
+  top: 2px;
+  left: 0;
+}
+
+.agree-link {
+  line-height: 24px;
+  font-size: $font-size-regular;
+  color: $strong-text;
+  font-weight: bold;
+  @include element('subtxt') {
+    color: $regular-text;
+    display: block;
+    margin-top: 15px;
+    font-weight: normal;
+  }
+}
+
+.btn-payment {
+  background-color: $pink;
+  color: $white;
+  width: 100%;
+  height: 60px;
+  margin-top: 35px;
+  text-align: center;
+  @include element('txt') {
+    font-size: ($font-size-regular + 1px);
+    display: block;
+  }
+  @include element('subtxt') {
+    font-size: $font-size-small;
+    display: block;
+  }
+}

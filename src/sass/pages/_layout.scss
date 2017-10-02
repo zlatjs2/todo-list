@@ -4,6 +4,65 @@
 body {
   position: relative;
 }
+.wrap_yanow {
+  .header {
+    z-index: 999;
+    position: fixed;
+    top: 0;
+    left: 0;
+  }
+  .container {
+    padding-top: 44px;
+  }
+}
+.header {
+  background-color: $white;
+  width: 100%;
+  min-height: 44px;
+  text-align: center;
+}
+.tophead {
+  @include box-sizing;
+  border-bottom: 1px solid $border-normal;
+  background-color: $white;
+  position: relative;
+  height: 44px;
+
+  @include element('title') {
+    color: $grayscale-lv4;
+    font-size: ($font-size-large - 1px);
+    font-weight: $font-weight-regular;
+    display: inline-block;
+    padding: 14px 0;
+  }
+
+  @include element('nav') {
+    position: absolute;
+    top: 0;
+    width: 44px;
+    height: 44px;
+
+    @include element-type('back') {
+      background: url(../img/nav__back.png) no-repeat center center;
+      background-size: 20px 16px;
+      left: 0;
+    }
+  }
+}
+
+.container {}
+
+.footer {
+  padding: 20px 20px 60px;
+}
+
+.no-login {
+  font-size: $font-size-regular;
+  color: $light-text;
+  padding: 60px 0 50px;
+  text-align: center;
+  line-height: 20px;
+}
 
 @include respond-to(medium-screens) {
 

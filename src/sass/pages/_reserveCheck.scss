@@ -1,0 +1,91 @@
+/**
+ * @ reserve__check
+ *   체크인, 체크아웃, 날짜 선택 영역 스타일.
+ */
+.rc-views {
+  @include clearfix;
+  background-color: #f9f9f9;
+  position: relative;
+  padding: 19px 20px;
+  height: 62px;
+  text-align: center;
+  .icon__rc-arrow {
+    margin-top: 23px;
+  }
+  .rc-days {
+    font-size: $font-size-small;
+    margin-top: 10px;
+  }
+  /* 날짜 강조(펜션 등) */
+  @include element('pension') {
+    .icon__rc-arrow {
+      margin-top: 19px;
+    }
+  }
+}
+.rc-box {
+  position: absolute;
+  top: 0;
+  padding: 18px 35px;
+  text-align: left;
+
+  @include modifier('left') {
+    left: 0;
+  }
+  @include modifier('right') {
+    right: 0;
+  }
+
+  @include element('name') {
+    font-size: $font-size-regular;
+    color: $pink;
+    display: block;
+    font-weight: bold;
+  }
+  @include element('day') {
+    font-size: $font-size-regular;
+    color: $strong-text;
+    display: block;
+    margin-top: 4px;
+  }
+  @include element('time') {
+    font-size: ($font-size-xlarge + 3px);
+    color: $strong-text;
+    display: block;
+    margin-top: 3px;
+  }
+}
+
+.check-time {
+  margin-top: 30px;
+  padding: 0 20px;
+  overflow: hidden;
+
+  @include element('list') {
+    @include clearfix;
+    margin-left: -8px;
+  }
+
+  @include element('item') {
+    float: left;
+    margin-left: 8px;
+    width: 50px !important;
+    text-align: center;
+  }
+
+  @include element('btn') {
+    border: 1px solid $grayscale-lv4;
+    font-size: ($font-size-regular - 1px);
+    color: $strong-text;
+    width: 50px;
+    height: 45px;
+    @include modifier('active') {
+      background-color: $pink;
+      border-color: $pink;
+      color: $white;
+    }
+    &:disabled {
+      opacity: 0.2;
+    }
+  }
+}

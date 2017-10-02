@@ -1,0 +1,57 @@
+/**
+ * 야놀자 숙소예약__상세 스타일.
+ */
+
+.section-title {
+  color: $strong-text;
+  font-size: $font-size-large;
+  @include element('payment') {
+    font-size: ($font-size-xlarge - 4px);
+    border-bottom: 1px solid $border-normal;
+    padding-bottom: 20px;
+  }
+}
+.reserve {
+  @include element-type('head') {
+    background-color: $white;
+    padding: 35px 20px 0;
+
+    @include element('title'){
+      font-size: $font-size-xlarge;
+      color: $strong-text;
+    }
+
+    @include element('subtxt'){
+      font-size: $font-size-large;
+      color: $regular-text;
+      margin-top: 15px;
+    }
+  }
+
+  @include element('check') {
+    border-bottom: 1px solid $border-normal;
+    background-color: $white;
+    margin-bottom: 8px;
+    padding: 40px 0 39px;
+  }
+  @include element('info') {
+    border-bottom: 1px solid $border-normal;
+    background-color: $white;
+    margin-bottom: 8px;
+    padding: 40px 20px 39px;
+    .txt-security {
+      margin-top: 4px;
+      font-weight: normal;
+    }
+  }
+  @include element('payment') {
+    border-bottom: 1px solid $border-normal;
+    background-color: $white;
+    margin-bottom: 8px;
+    padding: 40px 20px 39px;
+  }
+  @include element('agree') {
+    background-color: $white;
+    padding: 40px 20px 39px;
+  }
+}

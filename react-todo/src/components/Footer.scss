@@ -1,0 +1,15 @@
+@import '../style/base/variables';
+@import '../style/utils/mixins';
+
+.footer {
+  position: relative;
+  padding: 10px 0;
+  text-align: center;
+}
+
+.text {
+  padding: 10px 0 12px;
+  font-size: 0.8rem;
+  color: $gray;
+}
+

@@ -1,0 +1,23 @@
+@import '../style/base/variables';
+@import '../style/utils/mixins';
+
+.controller {
+  position: absolute;
+  top: 5px;
+  right: 10px;
+}
+
+.control-button {
+  width: 25px;
+  height: 25px;
+  font-size: 1.2rem;
+  text-align: center;
+}
+
+.done-button {
+  color: $green;
+}
+
+.delete-button {
+  color: $red;
+}

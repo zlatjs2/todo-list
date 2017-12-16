@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
-
+import PropTypes from 'prop-types';
+import classNames from 'classnames/bind';
+import styles from './TodoInput.scss';
+const cx = classNames.bind(styles);
 class TodoInput extends Component {
   constructor(props) {
     super(props);
-    
+   
     this.handleChange = this.handleChange.bind(this);
     this.handleClick = this.handleClick.bind(this);
   };
@@ -20,16 +23,21 @@ class TodoInput extends Component {
   render() {
     const { keyword } = this.props;
     return (
-      <div>
-        <input 
-          type="text" 
-          value={keyword}
-          onChange={this.handleChange}
-        />
-        <button 
-          type="button" 
-          onClick={this.handleClick}
-        >add</button>
+      <div className={cx('form')}>
+        <div className={cx('keyword')}>
+          <input 
+            className={cx('input')}
+            type="text" 
+            value={keyword}
+            placeholder="Title..."
+            onChange={this.handleChange}
+          />
+          <button   
+            className={cx('create-button')}
+            type="button" 
+            onClick={this.handleClick}
+          >추가</button>
+        </div>
       </div>
     );
   }

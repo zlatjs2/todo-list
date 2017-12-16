@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import update from 'react-addons-update';
+
+import Container from '../components/Container';
+import Header from '../components/Header';
 import TodoInput from '../components/TodoInput';
 import TodoList from '../components/TodoList';
-import classNames from 'classnames/bind';
-import styles from './App.css';
-
-const cx = classNames.bind(styles);
+import Footer from '../components/Footer';
 class App extends Component {
   constructor(props){
     super(props);
@@ -27,6 +27,8 @@ class App extends Component {
 
     this.onInsertTodo = this.onInsertTodo.bind(this);
     this.onChangeKeyword = this.onChangeKeyword.bind(this); 
+    this.onCompleteItem = this.onCompleteItem.bind(this); 
+    this.onDeleteItem = this.onDeleteItem.bind(this); 
   }
 
   onChangeKeyword(text) {
@@ -36,23 +38,50 @@ class App extends Component {
   };
 
   onInsertTodo(title) {
-    let newItem = update(this.state, {
-      todos: {
-        $push: [{'title': title, }]
-      }
-    });
-    this.setState(newItem);
+    if(title === '') {
+      console.log('error');
+    } else {
+      let newItem = update(this.state, {
+        todos: {
+          $push: [{ 'title': title }]
+        }
+      });
+
+      this.setState(newItem);
+    }
   };
+
+  onCompleteItem(key) {
+    console.log('is completeItem', + key);
+  }
+  
+  onDeleteItem(key) {
+    this.setState({
+      todos: update(this.state.todos, {
+        $splice: [[key, 1]]
+      })
+    });
+
+    console.log('is deleteItem', + key);
+  }
 
   render() { 
     return (
-      <div className={cx('App')}>
+      <div>
+        <Header />
         <TodoInput 
           keyword={this.state.keyword}
           onInsertTodo={this.onInsertTodo}
           onChangeKeyword={this.onChangeKeyword}
         />
-        <TodoList todos={this.state.todos} /> 
+        <Container>
+          <TodoList 
+            todos={this.state.todos} 
+            onCompleteItem={this.onCompleteItem}
+            onDeleteItem={this.onDeleteItem}
+          />
+        </Container>
+        <Footer />
       </div>
     );
   }

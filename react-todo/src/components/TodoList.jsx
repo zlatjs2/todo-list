@@ -5,18 +5,20 @@ import TodoItem from './TodoItem';
 import styles from './TodoList.scss';
 
 const cx = classNames.bind(styles);
-
-const TodoList = ({ todos }) => {
+const TodoList = ({ todos, onCompleteItem, onDeleteItem }) => {
   return (
-    <div className={cx('todo-list')}>
+    <div className={cx('list')}>
       {todos.map((todo, idx) =>
-          <TodoItem
-            title={todo.title} 
-            description={todo.description}
-            completed={todo.completed}
-            key={idx}
-          />
-        )}
+        <TodoItem
+          key={idx}
+          contactKey={idx}
+          title={todo.title} 
+          description={todo.description}
+          completed={todo.completed}        
+          onCompleteItem={onCompleteItem}
+          onDeleteItem={onDeleteItem}
+        />
+      )}
     </div>  
   );
 };

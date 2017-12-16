@@ -23,7 +23,7 @@ const TodoList = ({ todos, onCompleteItem, onDeleteItem }) => {
   );
 };
 
-TodoList.PropTypes = {
+TodoList.propTypes = {
   todos: PropTypes.arrayOf(
     PropTypes.shape({
       title: PropTypes.string,

@@ -7,9 +7,10 @@ import styles from './TodoItem.scss';
 const cx = classNames.bind(styles);
 
 const TodoItem = ({ title, contactKey, completed, onCompleteItem, onDeleteItem }) => {
-  console.log(contactKey);
   return (
-    <div className={cx('item', `${completed === true ? 'is-done' : ''}`)}>
+    <div 
+      className={cx('item', `${completed === true ? 'is-done' : ''}`)}
+    >
       <div className={cx('title')}> 
         {title}
       </div>
@@ -27,7 +28,7 @@ const TodoItem = ({ title, contactKey, completed, onCompleteItem, onDeleteItem }
   );
 };
 
-TodoItem.PropTypes = {
+TodoItem.propTypes = {
   title: PropTypes.string, 
   description: PropTypes.string, 
   completed: PropTypes.bool,

@@ -46,5 +46,14 @@ class TodoItemController extends Component {
   }
 }
 
+TodoItemController.propTypes = {
+  onCompleteItem: PropTypes.func.isRequired,
+  onDeleteItem: PropTypes.func.isRequired,
+}
+
+TodoItemController.defaultProps = {
+  onCompleteItem: () => console.warn('is not onCompleteItem'),
+  onDeleteItem: () => console.warn('is not onDeleteItem'),
+}
 
 export default TodoItemController;

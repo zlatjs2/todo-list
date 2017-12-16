@@ -43,7 +43,7 @@ class App extends Component {
     } else {
       let newItem = update(this.state, {
         todos: {
-          $push: [{ 'title': title }]
+          $push: [{ 'title': title, 'completed': false }]
         }
       });
 
@@ -52,7 +52,13 @@ class App extends Component {
   };
 
   onCompleteItem(key) {
-    console.log('is completeItem', + key);
+    this.setState({
+      todos: update(this.state.todos, {
+        [key]: {
+          completed: { $set: !this.state.todos[key].completed }
+        }
+      })
+    });   
   }
   
   onDeleteItem(key) {
@@ -61,8 +67,6 @@ class App extends Component {
         $splice: [[key, 1]]
       })
     });
-
-    console.log('is deleteItem', + key);
   }
 
   render() { 

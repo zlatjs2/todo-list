@@ -43,4 +43,14 @@ class TodoInput extends Component {
   }
 }
 
+TodoInput.propTypes = {
+  onChangeKeyword: PropTypes.func.isRequired,
+  onInsertTodo: PropTypes.func.isRequired,
+}
+
+TodoInput.defaultProps = {
+  onChangeKeyword: () => console.warn('is not onChangeKeyword'),
+  onInsertTodo: () => console.warn('is not onInsertTodo'),
+}
+
 export default TodoInput;
